@@ -1,6 +1,6 @@
 name: 05-2. Hello World Composite
 
-on: 
+on:
   [workflow_dispatch]
 
 jobs:
@@ -14,19 +14,6 @@ jobs:
           who-to-greet: 'Hello from GH ABCs'
       - run: echo random-number ${{ steps.hello-world.outputs.random-number }}
         shell: bash
-  apply-label:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/github-script@v6
-        with:
-          script: |
-            github.rest.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ['Training']
-            })
-              hello_world_job2:
     runs-on: ubuntu-latest
     name: A job2 to say hello
     steps:
